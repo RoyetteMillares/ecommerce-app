@@ -20,7 +20,7 @@ const Home = ({ productsData, bannerData}) => (
           (products) => <Product key={products._id} product={products}/>
         )}
       </div>
-      <FooterBanner />
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
     </div>
   
 )
