@@ -17,6 +17,14 @@ export const StateContext = ({ children }) => {
         const checkProductInCart = cartItems.find((item) => item._id === product._id);
         if (checkProductInCart) {
             setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
+            setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + product.quantity);
+
+            const updatedCartItems = cartItems.map((cartProduct) => {
+                if (cartProduct._id === product._id) return {
+                    ...cartProduct,
+                    quantity: cartProduct.quantity + quantity
+                }
+            })
         }
     }
 
